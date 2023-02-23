@@ -11,6 +11,7 @@ import android.view.SurfaceHolder;
 
 import java.util.Map;
 
+import com.google.android.exoplayer2.ExoPlaybackException;
 import tv.danmaku.ijk.media.player.IMediaPlayer;
 import tv.danmaku.ijk.media.player.IjkMediaPlayer;
 import tv.danmaku.ijk.media.player.misc.ITrackInfo;
@@ -209,6 +210,11 @@ public class IjkPlayer extends AbstractPlayer implements IMediaPlayer.OnErrorLis
     @Override
     public long getTcpSpeed() {
         return mMediaPlayer.getTcpSpeed();
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+        mPlayerEventListener.onError();
     }
 
     @Override

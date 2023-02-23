@@ -8,6 +8,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.google.android.exoplayer2.ExoPlaybackException;
 
 import java.util.Map;
 
@@ -218,6 +219,11 @@ public class AndroidMediaPlayer extends AbstractPlayer implements MediaPlayer.On
     public long getTcpSpeed() {
         // no support
         return 0;
+    }
+
+    @Override
+    public void onPlayerError(ExoPlaybackException error) {
+        mPlayerEventListener.onError();
     }
 
     @Override

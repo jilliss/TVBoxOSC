@@ -3,6 +3,7 @@ package xyz.doikki.videoplayer.player;
 import android.content.res.AssetFileDescriptor;
 import android.view.Surface;
 import android.view.SurfaceHolder;
+import com.google.android.exoplayer2.ExoPlaybackException;
 
 import java.util.Map;
 
@@ -156,6 +157,8 @@ public abstract class AbstractPlayer {
     public void setPlayerEventListener(PlayerEventListener playerEventListener) {
         this.mPlayerEventListener = playerEventListener;
     }
+
+    public abstract void onPlayerError(ExoPlaybackException error);
 
     public interface PlayerEventListener {
 
